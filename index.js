@@ -1,20 +1,32 @@
 
 
-let greenButton = document.getElementById("goButton");
-let yellowButton = document.getElementById("slowButton");
-let redButton = document.getElementById("stopButton");
+const greenButton = document.getElementById("goButton");
+const yellowButton = document.getElementById("slowButton");
+const redButton = document.getElementById("stopButton");
 
-let greenLight = document.getElementById("goLight");
-let yellowLight = document.getElementById("slowLight");
-let redLight = document.getElementById("stopLight");
+const greenLight = document.getElementById("goLight");
+const yellowLight = document.getElementById("slowLight");
+const redLight = document.getElementById("stopLight");
 
-function toggle(light, color) {
-  if (light.classList.contains(color)) {
-    light.classList.remove(color);
-  } else {
-    light.classList.add(color)
-};}
+function green() {
+  if (greenLight.classList.contains("go")) {
+    greenLight.classList.remove("go")
+  } else {greenLight.classList.add("go")}
+}
+
+function yellow() {
+  if (yellowLight.classList.contains("slow")) {
+    yellowLight.classList.remove("slow")
+  } else {yellowLight.classList.add("slow")}
+}
+
+function red() {
+  if (redLight.classList.contains("stop")) {
+    redLight.classList.remove("stop")
+  } else {redLight.classList.add("stop")}
+}
   
-  greenButton.onclick = toggle(greenLight, "go");
-  yellowButton.onclick = toggle(yellowLight, "slow");
-  redButton.onclick = toggle(redLight, "stop");
+greenButton.addEventListener("click", green);
+yellowButton.addEventListener("click", yellow)
+redButton.addEventListener("click", red)
+
